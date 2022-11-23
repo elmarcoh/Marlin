@@ -50,3 +50,12 @@ tests-all-local-docker:
 setup-local-docker:
 	docker-compose build
 .PHONY: setup-local-docker
+
+# BOARD:="LPC1768" UPLOAD_PORT:=/dev/ttyACM0
+UPLOAD_PORT:=/run/media/marcos/A87B-A154
+
+all:
+	platformio run
+
+upload:
+	platformio run -t upload --upload-port $(UPLOAD_PORT)
